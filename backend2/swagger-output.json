@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/clients/": {
+    "/clients": {
       "get": {
         "tags": ["Clients"],
         "summary": "Obtener todos los clientes",
@@ -153,7 +153,7 @@
         }
       }
     },
-    "/products/": {
+    "/products": {
       "get": {
         "tags": ["Products"],
         "summary": "Obtener todos los productos",
@@ -399,4 +399,7 @@
           "example": "Electronics"
         }
       },
-      "required": ["name", "pric
+      "required": ["name", "price", "description", "category"]
+    }
+  }
+}

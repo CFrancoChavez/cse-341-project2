@@ -6,7 +6,7 @@ const doc = {
     title: 'Clients and Products API',
     description: 'Clients and Products API CRUD',
   },
-  host: 'localhost:3000',
+  host: 'https://cse-341-project2-l4kz.onrender.com',
   basePath: '/',
   schemes: ['https'],
   definitions: { // Usar 'definitions' en lugar de 'components.schemas'

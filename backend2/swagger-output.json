@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "title": "Clients and Products API",
-    "description": "Documentación de la API para gestionar clientes y productos.",
+    "description": "Clients and Products API CRUD",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-project2-l4kz.onrender.com",
+  "host": "cse-341-project2-l4kz.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -113,8 +113,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Cliente actualizado exitosamente"
+          "200": {
+            "description": "Cliente actualizado exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
           },
           "400": {
             "description": "Solicitud incorrecta"
@@ -142,7 +145,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Cliente eliminado exitosamente"
+            "description": "Cliente eliminado exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Client"
+            }
           },
           "404": {
             "description": "Cliente no encontrado"
@@ -255,8 +261,11 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "Producto actualizado exitosamente"
+          "200": {
+            "description": "Producto actualizado exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
           },
           "400": {
             "description": "Solicitud incorrecta"
@@ -284,7 +293,10 @@
         ],
         "responses": {
           "200": {
-            "description": "Producto eliminado exitosamente"
+            "description": "Producto eliminado exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
           },
           "404": {
             "description": "Producto no encontrado"

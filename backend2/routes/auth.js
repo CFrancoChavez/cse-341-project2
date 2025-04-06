@@ -28,7 +28,7 @@ router.get('/github', passport.authenticate('github'));
 router.get('/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }), // Puedes cambiar '/login'
     (req, res) => {
-        res.redirect('/protected'); // Cambia '/protected' por la ruta deseada
+        res.redirect('/api-docs/'); // Cambia '/protected' por la ruta deseada
     });
 
 /**

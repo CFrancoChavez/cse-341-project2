@@ -10,6 +10,17 @@
   "schemes": [
     "https"
   ],
+  "securityDefinitions": {
+    "githubAuth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://github.com/login/oauth/authorize",
+      "tokenUrl": "https://github.com/login/oauth/access_token",
+      "flow": "implicit", 
+      "scopes": {
+        "user:email": "Access to your email address"
+      }
+    }
+  },
   "paths": {
     "/clients/": {
       "get": {
@@ -36,6 +47,11 @@
         "tags": ["Clients"],
         "summary": "Crear un nuevo cliente",
         "description": "Crea un nuevo cliente con los datos proporcionados.",
+        "security": [
+          {
+            "githubAuth": []
+          }
+        ],
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -94,6 +110,11 @@
         "tags": ["Clients"],
         "summary": "Actualizar un cliente por ID",
         "description": "Actualiza los datos de un cliente existente.",
+        "security": [
+          {
+            "githubAuth": []
+          }
+        ],
         "consumes": ["application/json"],
         "parameters": [
           {
@@ -134,6 +155,11 @@
         "tags": ["Clients"],
         "summary": "Eliminar un cliente por ID",
         "description": "Elimina un cliente existente por su ID.",
+        "security": [
+          {
+            "githubAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "id",

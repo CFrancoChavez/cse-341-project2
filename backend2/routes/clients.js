@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const clientsController = require('../controllers/clients');
+const { saveContact } = require('../middlewares/validateClient'); // Asegúrate de que este middleware exista o créalo
+const isAuthenticated = require('../middlewares/isAuthenticated');
 
 /**
  * @swagger
@@ -109,7 +111,7 @@ router.get('/:id', clientsController.getSingleClient);
  * schema:
  * type: string
  */
-router.post('/', clientsController.createClient);
+router.post('/', isAuthenticated, validateClient, clientsController.createClient);
 
 /**
  * @swagger
@@ -149,7 +151,7 @@ router.post('/', clientsController.createClient);
  * 404:
  * description: Cliente no encontrado
  */
-router.put('/:id', clientsController.updateClient);
+router.put('/:id', isAuthenticated, validateClient, clientsController.updateClient); 
 
 /**
  * @swagger
@@ -172,6 +174,6 @@ router.put('/:id', clientsController.updateClient);
  * 404:
  * description: Cliente no encontrado
  */
-router.delete('/:id', clientsController.deleteClient);
+router.delete('/:id', isAuthenticated, validateClient, clientsController.deleteClient);
 
 module.exports = router;

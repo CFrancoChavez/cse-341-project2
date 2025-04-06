@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const productsController = require('../controllers/products');
+const isAuthenticated = require('../middlewares/isAuthenticated');
+const { validateProduct } = require('../middlewares/validateProduct');
 
 /**
  * @swagger
@@ -103,7 +105,7 @@ router.get('/:id', productsController.getSingleProduct);
  * schema:
  * type: string
  */
-router.post('/', productsController.createProduct);
+router.post('/', isAuthenticated, validateProduct, productsController.createProduct);
 
 /**
  * @swagger
@@ -141,7 +143,7 @@ router.post('/', productsController.createProduct);
  * 404:
  * description: Producto no encontrado
  */
-router.put('/:id', productsController.updateProduct);
+router.put('/:id', isAuthenticated, validateProduct, productsController.updateProduct);
 
 /**
  * @swagger
@@ -164,6 +166,6 @@ router.put('/:id', productsController.updateProduct);
  * 404:
  * description: Producto no encontrado
  */
-router.delete('/:id', productsController.deleteProduct);
+router.delete('/:id', isAuthenticated, productsController.deleteProduct);
 
 module.exports = router;

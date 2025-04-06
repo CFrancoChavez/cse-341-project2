@@ -14,6 +14,23 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Configuración de la sesión
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your-default-secret',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    cookie: {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+    },
+}));
+
+// Inicialización de Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // Conexión a la base de datos
 connectToDatabase()
     .then(() => console.log('Database connection initialized...'))

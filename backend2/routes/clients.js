@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const clientsController = require('../controllers/clients');
-const { saveContact } = require('../middlewares/validateClient'); // Asegúrate de que este middleware exista o créalo
+const { validateClient } = require('../middlewares/validateClient'); // Asegúrate de que este middleware exista o créalo
 const isAuthenticated = require('../middlewares/isAuthenticated');
 
 /**

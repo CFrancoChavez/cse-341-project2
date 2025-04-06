@@ -5,6 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 const routes = require('./routes/index');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const { connectToDatabase } = require('./data/database'); // Importa la función de conexión
 
 dotenv.config();

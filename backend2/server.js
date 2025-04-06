@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
 const routes = require('./routes/index');
+const session = require('express-session');
 const { connectToDatabase } = require('./data/database'); // Importa la función de conexión
 
 dotenv.config();

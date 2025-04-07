@@ -174,6 +174,6 @@ router.put('/:id', isAuthenticated, validateClient, clientsController.updateClie
  * 404:
  * description: Cliente no encontrado
  */
-router.delete('/:id', isAuthenticated, validateClient, clientsController.deleteClient);
+router.delete('/:id', isAuthenticated, clientsController.deleteClient);
 
 module.exports = router;
